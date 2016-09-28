@@ -49,6 +49,12 @@ This process may take a while, as it involves the full creation of three contain
 
 This process also involves the database creation and the insertion of the sample data.
 
+After the build has successfully finished, you can start the three containers:
+```bash
+docker-compose -f deploy/beacon/docker-compose-beacon.yml up
+```
+Now you should be able to point your browser towards http://localhost:6080/ and use the beacon frontend. You can perform test searches from the sample dataset.
+
 ### Database contents outside of the container
 
 The current implementation stores the data inside of the container itself. This approach eases the deployment in whatever environment, but it may not be the strategy that you want to follow. If this is your case, create a directory in your host computer and attach a volume in docker-compose. You can follow the instructions explained at the [Docker compose reference documentation](https://docs.docker.com/compose/compose-file/#volumes-volume-driver).
