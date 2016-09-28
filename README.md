@@ -126,16 +126,15 @@ Now, you can open config.beacon.local.js with your preferred text editor and loo
         "info": ""
     },
 
-    "loginState": 'authz.panel',
-    "loggedInState": 'authz.panel',
-    "forbiddenState": 'authz.panel',
+    "loginState": "authz.panel",
+    "loggedInState": "authz.panel",
+    "forbiddenState": "authz.panel",
 
     "acl": {
         "enable": false,
-        "defaultStateRoles": ['ROLE_ADMIN', 'ROLE_REQUESTER']
+        "defaultStateRoles": ["ROLE_ADMIN", "ROLE_REQUESTER"]
     },
 
-    ...
 }
 
 ```
