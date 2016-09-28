@@ -1,0 +1,6 @@
+
+<select
+    ng-options="tag as obj.value {{enumGroup ? 'group by obj.' + enumGroup : ''}} for (tag, obj) in egaEnum"
+    ng-required="required">
+    <option value="">--- Select an option ---</option>
+</select>

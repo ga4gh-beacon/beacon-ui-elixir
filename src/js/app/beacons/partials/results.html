@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Beacon search history
+        <button class="pull-right btn btn-xs btn-primary" ng-click="clear()">Clear results</button>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table" ng-if="results.length">
+                <tr>
+                    <th>Dataset</th>
+                    <th>Ref</th>
+                    <th>Chr</th>
+                    <th>Pos</th>
+                    <th>Var</th>
+                    <th>Exists</th>
+                </tr>
+                <tr ng-repeat="result in results | orderBy:$index:true track by $index">
+                    <td>{{result.dataset || 'all'}}</td>
+                    <td>{{result.result.assemblyId}}</td>
+                    <td>{{result.referenceName}}</td>
+                    <td>{{result.start}}</td>
+                    <td>{{result.alternateBases}}</td>
+                    <td><span class="badge alert-{{result.result.exists ? 'success' : 'danger'}}">{{result.result.exists || false}}</span></td>
+                </tr>
+            </table>
+        </div>
+        <div ng-if="!results.length">
+            <div class="alert alert-warning">There were no previous searches yet. Please, perform a search query by using the form at left side.</div>
+        </div>
+    </div>
+</div>

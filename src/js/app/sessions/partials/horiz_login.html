@@ -1,0 +1,39 @@
+
+<div ng-if="egaServicesSession.isAuthenticated()" class="pull-lg-right pull-md-right pull-lg-right">
+    <div class="dropdown">
+        <a href="#" class="btn btn-default dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{egaServicesSession.user.fullName}}&nbsp;<span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <a href="#" ng-click="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div ng-if="!egaServicesSession.isAuthenticated()" class="pull-lg-right pull-md-right">
+    <form class="form-inline" ng-submit="login()" class="navbar-form form-inline" ng-hide="authenticating" role="form">
+        <div class="form-group">
+            <label for="username" class="sr-only">Password</label>
+            <input
+                name="username"
+                type="text"
+                ng-model="user.name"
+                class="form-control"
+                placeholder="Username"/>
+        </div>
+        <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <input
+                name="password"
+                type="password"
+                ng-model="user.pwd"
+                class="form-control"
+                placeholder="Password"/>
+            <input name="redirect" ng-model="targetState" type="hidden"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" name="login" analytics-on="click" analytics-category="Login form" analytics-label="submit" analytics-event="login" class="btn btn-default">Log in</button>
+        </div>
+    </form>
+</div>

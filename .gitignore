@@ -1,0 +1,11 @@
+latest
+node_modules
+**/node_modules
+!build/placeholder
+src/web/js/templates.js
+!deploy/beacon
+scripts/*
+npm-debug.log
+# Test log output folder
+tests/results
+**/nohup.out

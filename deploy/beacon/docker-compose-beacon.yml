@@ -1,0 +1,46 @@
+version: "2"
+services:
+  beacon_ui:
+    build:
+        context: ../..
+        args:
+          UI_BUILD_ENV: docker
+          UI_BUILD_APP: beacon
+    # Frontend will be reachable at http://127.0.0.1:6080/
+    ports:
+      - "6080:80"
+    depends_on:
+      - beacon
+      - beacon_db
+  beacon:
+    build:
+      context: beacon_backend/
+    # Backend will be reachable at http://127.0.0.1:9075/
+    ports:
+      - "9075:9075"
+    links:
+      - beacon_db:beacon_db
+    depends_on:
+      - beacon_db
+  # Beacon DB doesn't need to expose any port outside of this container set, as
+  # the only expected connection is from the "beacon" container, and thus there's
+  # no need to expose port 5432 to the host's applications.
+  #
+  # Moreover, this way we can avoid collisions between host's pgsql installation
+  # and containers'.
+  #
+  # If you want to reach pgsql from outside of the containers, uncomment the
+  # "ports" clause and the indented line after it. If you want to change the
+  # port that can be used outside of the container, set the mapping with the
+  # HOST:CONTAINER structure (i.e.: 35432:5432) the host will listen on port
+  # 35432 and will connect to pgsql container's port 5432.
+  #
+  # For more options and details, please, check out the docker documentation.
+  beacon_db:
+    build:
+      context: beacon_db/
+    environment:
+      POSTGRES_USER: microaccounts_dev
+      POSTGRES_PASSWORD: r783qjkldDsiu
+      POSTGRES_DB: elixir_beacon_dev
+

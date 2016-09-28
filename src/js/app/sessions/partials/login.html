@@ -1,0 +1,54 @@
+<div class="col-lg-2 col-md-3 col-sm-4 col-xs-3" style="position: relative; top: 50%; left: 50%; transform: translateY(50%) translateX(-50%)">
+    <div class="row">
+        <div class="col-xs-12">
+            <img class="img-responsive center-block" src="img/logo.png"/>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center">
+                <h4>{{Config.application.substr(0,1).toUpperCase()+Config.application.substr(1).toLowerCase()}} portal Sign in form</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-12 alert alert-danger" ng-if="loginError">{{loginMessage}}</div>
+                <div class="col-xs-12" ng-show="authenticating">
+                    <img src="img/ajax-loader.gif"/>
+                </div>
+                <div class="col-xs-12" ng-hide="authenticating">
+                    <form ng-submit="login()" class="css-form" role="form">
+                        <div class="form-group">
+                          <input
+                            name="username"
+                            type="text"
+                            ng-model="user.name"
+                            analytics-on="change"
+                            analytics-category="Login form"
+                            analytics-label="username"
+                            analytics-event="change"
+                            class="form-control"
+                            placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                          <input
+                            name="password"
+                            type="password"
+                            ng-model="user.pwd"
+                            analytics-on="change"
+                            analytics-category="Login form"
+                            analytics-label="password"
+                            analytics-event="change"
+                            class="form-control"
+                            placeholder="Password">
+                          <input name="redirect" ng-model="targetState" type="hidden"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" name="login" class="btn btn-default">Log in</button>
+                        </div>
+                    </form>
+                    <div class="col-md-12 alert alert-warning" ng-show="isCapsLockOn">Please, beware that <strong>Caps Lock is On</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

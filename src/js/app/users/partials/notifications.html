@@ -1,0 +1,57 @@
+<uib-accordion-group>
+    <uib-accordion-heading>
+        <span class="glyphicon glyphicon-inbox"></span>&nbsp;&nbsp;Notification settings
+    </uib-accordion-heading>
+    <div class="col-md-12">
+        <form role="form" novalidate>
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <td>Notification type</td>
+                        <td>Don't email</td>
+                        <td>Weekly email</td>
+                        <td>Daily email</td>
+                        <td>email immediately</td>
+                        <td>Show on panel</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="notification in notifications">
+                        <td>{{notification.label}}</td>
+                        <td><input
+                                type="checkbox"
+                                ng-model="notificationSettings[notification.code].dontSend"
+                                ng-checked="notificationSettings[notification.code].dontSend"/>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                ng-disabled="notificationSettings[notification.code].dontSend"
+                                ng-checked="notificationSettings[notification.code].weekEmail"/>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                ng-disabled="notificationSettings[notification.code].dontSend"
+                                ng-checked="notificationSettings[notification.code].dayEmail"/>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                ng-disabled="notificationSettings[notification.code].dontSend"
+                                ng-checked="notificationSettings[notification.code].emailNow"/>
+                        </td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                ng-checked="notificationSettings[notification.code].panel"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-group col-md-8">
+                <button ng-click="saveNotificationsSettings()">Save notification settings</button>
+            </div>
+        </form>
+    </div>
+</uib-accordion-group>

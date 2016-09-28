@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="beaconApp">
+    <head>
+        <meta charset="utf-8" />
+        <!-- build:css css/combined.css -->
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="js/ng-modules/ui-grid/3.0.3/ui-grid.css"/>
+        <link rel="stylesheet" type="text/css" href="js/ng-modules/angular-growl/angular-growl.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/titillium.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.beacon.css"/>
+        <!-- endbuild -->
+        <title>EGA Beacon service</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                    <h1>EGA Beacon</h1>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6" style="padding-bottom: 1%">
+                    <img src="img/ebi.png"  class="img-responsive"/>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
+                    <img src="img/CRG_blue.jpg" class="pull-right img-responsive"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 well">
+                    <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                         By use of this Beacon Service, I agree to forego any attempt to re-identify individuals represented in Beacon Service Replies, except where expressly authorized by law or by a written prior permission from the respective DAC. (<a ui-sref="authz.tos" target="_new">more details</a>)
+                     </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 pull-right" ui-view="authz.login_bar"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div ui-view></div>
+            </div>
+            <div growl></div>
+        </div>
+        <!-- General app initialization and configuration services -->
+
+<script type="text/javascript">
+var appName = 'beaconApp',
+    appEnv  = 'PROD';
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45066648-6', 'auto');
+  ga('send', 'pageview');
+</script>
+        <!-- build:js js/app.js -->
+        <script type="text/javascript" src="js/node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="js/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/node_modules/underscore/underscore-min.js"></script>
+
+        <script type="text/javascript" src="js/node_modules/filesaver.js/FileSaver.min.js"></script>
+
+        <script type="text/javascript" src="js/node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/node_modules/angular-cookies/angular-cookies.min.js"></script>
+
+        <script type="text/javascript" src="js/node_modules/restangular/dist/restangular.min.js"></script>
+        <script type="text/javascript" src="js/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="js/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+        <script type="text/javascript" src="js/node_modules/angulartics/dist/angulartics.min.js"></script>
+        <script type="text/javascript" src="js/node_modules/angulartics-google-analytics/dist/angulartics-google-analytics.min.js"></script>
+        <script type="text/javascript" src="js/node_modules/angular-growl-v2/build/angular-growl.min.js"></script>
+        <script type="text/javascript" src="js/node_modules/angular-ui-grid/ui-grid.js"></script>
+
+        <script type="text/javascript" src="js/app/ui-grid/ui-grid-basecontroller.js"></script>
+        <script type="text/javascript" src="js/app/ui-grid/ui-grid-loading.js"></script>
+        <script type="text/javascript" src="js/app/config.beacon.js"></script>
+        <script type="text/javascript" src="js/app/navigation/navigation.beacon.js"></script>
+
+        <script type="text/javascript" src="js/app/app.beacon.js"></script>
+        <script type="text/javascript" src="js/app/app.shared.js"></script>
+
+        <script type="text/javascript" src="js/app/services/resources.js"></script>
+        <script type="text/javascript" src="js/app/services/ega_filters.js"></script>
+        <script type="text/javascript" src="js/app/enums/enums.js"></script>
+
+        <script type="text/javascript" src="js/app/services/eu.crg.ega.session.js"></script>
+        <script type="text/javascript" src="js/app/pages/panel.js"></script>
+        <script type="text/javascript" src="js/app/users/users.js"></script>
+        <script type="text/javascript" src="js/app/sessions/login.js"></script>
+        <script type="text/javascript" src="js/app/beacons/beacons.js"></script>
+        <!-- endbuild -->
+        <script type="text/javascript" src="js/templates.js"></script>
+    </body>
+</html>

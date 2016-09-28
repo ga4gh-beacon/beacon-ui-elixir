@@ -1,0 +1,5 @@
+build/
+deploy/docker
+node_modules/
+src/js/node_modules/
+tests/

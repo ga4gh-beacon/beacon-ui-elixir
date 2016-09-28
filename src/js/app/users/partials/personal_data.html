@@ -1,0 +1,54 @@
+<uib-accordion-group is-open="true">
+    <uib-accordion-heading>
+        <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Personal data
+    </uib-accordion-heading>
+    <div class="col-md-12">
+        <form role="form" name="myAccountData" novalidate class="css-form">
+            <div class="form-group col-md-8">
+                <label for="username" class="col-md-4">Name:</label>
+                <div class="col-md-6">
+                    {{user.fullName}}
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="user.email" class="col-md-4">e-mail:</label>
+                <div class="col-md-6">
+                    <input type="email" ng-readonly="1" ng-model="user.email"/>
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="user.institute" class="col-md-4">Telephone:</label>
+                <div class="col-md-6">
+                    <input type="text" ng-readonly="1" ng-model="user.telephone"/>
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="user.institute" class="col-md-4">Fax:</label>
+                <div class="col-md-6">
+                    <input type="text" ng-readonly="1" ng-model="user.fax"/>
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="user.institute" class="col-md-4">Address:</label>
+                <div class="col-md-6">
+                    <input type="text" ng-readonly="1" ng-model="user.address"/>
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="user.institute" class="col-md-4">Institute:</label>
+                <div class="col-md-6">
+                    <input type="text" ng-readonly="1" ng-model="user.institute"/>
+                </div>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="user.username" class="col-md-4">EGA box:</label>
+                <div class="col-md-6">
+                    <input type="text" ng-readonly="1" ng-model="user.username"/>
+                </div>
+            </div>
+<!--             <div class="form-group col-md-8">
+                <button ng-click="saveUserPersonalData()">Save my account data</button>
+            </div> -->
+        </form>
+    </div>
+</uib-accordion-group>

@@ -1,0 +1,311 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/*@media (max-width: 767px) {
+  body {
+    font-size: 11px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 11px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  body {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 13px;
+  }
+}*/
+
+.css-form input.ng-invalid.ng-dirty,
+.css-form textarea.ng-invalid.ng-dirty,
+.css-form select.ng-invalid  {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.css-form input.ng-valid.ng-dirty,
+.css-form textarea.ng-valid.ng-dirty,
+.css-form select.ng-valid.ng-dirty {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+/*
+  Dark grey: #4e5256
+ */
+
+.navbar-default {
+  background-color: #fff;
+  border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-form {
+  border-color: transparent !important;
+}
+
+body {
+  padding-top: 15px;
+  color: #5d5d5d;
+}
+
+.bg-default {
+  color: #000;
+  background-color: #e1e0e0;
+}
+
+.btn-primary, .alert-primary, .panel .panel-primary, .panel-primary .panel-heading,
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover
+ {
+  background-color: #155177 !important;
+  border-color: #155177 !important;
+  color: #fff !important;
+}
+
+.alert-primary
+{
+  background-color: #DFF3F7 !important;
+  border-color: #155177 !important;
+  color: #155177 !important;
+}
+
+
+.pagination>li>a, .pagination>li>span, .pagination>li>a:hover, .pagination>li>span:hover {
+  color: #155177;
+}
+
+.panel-default > .panel-heading {
+  color: #5d5d5d;
+}
+
+ui-view.ng-scope > div.ng-scope {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+h1.ega, h2.ega, h3.ega {
+  font-family: "Titillium", Arial, Helvetica, sans-serif;
+  color: #155177;
+}
+
+
+.navbar-center
+{
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    top: 4%;
+    text-align: center;
+    margin: auto;
+    height:70%;
+}
+
+div[ui-view="authz.inboxes"] li {
+  cursor: pointer;
+}
+
+accordion[rel="my-resources"] .panel-body {
+  padding: 0px;
+}
+
+/**
+ * Submissions' state top panel. Shows resources states based on color codes
+ */
+
+.state-1, .state-2, .state-3, .state-4, .state-5, .state-6, .state-7 {
+  border-radius: 5;
+  border: 1px solid #ddd;
+  font-weight: normal;
+}
+
+/* Light grey */
+span.label.state-1 {
+  background-color: #eee;
+  color: #555;
+  font-size: 0.9em;
+  padding: 5px  5px;
+}
+
+span[rel="countboxes"] > span.label {
+  background-color: #eee;
+  color: #555;
+  font-size: 0.9em;
+  padding: 5px  5px;
+}
+
+span.label > span.badge {
+  background-color: #555;
+  color: #fff;
+}
+
+/* Light green */
+span.label.state-2 {
+  background-color: #dff0d8;
+  color: #555;
+  font-size: 0.9em;
+  padding: 5px  5px;
+}
+
+/*Orange*/
+span.label.state-3 {
+  background-color: #fcf8e3;
+  color: #777;
+  font-size: 0.9em;
+  padding: 5px  5px;
+}
+
+/* Blue */
+span.label.state-4 {
+  background-color: #d9edf7;
+  color: #777;
+  font-size: 0.9em;
+  padding: 5px  5px;
+}
+
+/* Dark green */
+span.label.state-5 {
+  background-color: #5cb85c;
+  color: #fff;
+  font-size: 0.9em;
+  padding: 5px  5px;
+}
+
+/* Yellow */
+span.label.state-6 {
+  background-color: #ffff00;
+  color: #555;
+  font-size: 0.9em;
+  padding: 5px  5px;
+}
+
+/* White */
+span.label.state-7 {
+  background-color: #fff;
+  color: #555;
+  font-size: 0.9em;
+  padding: 5px  5px;
+}
+
+.baseGrid {
+  width: 100%;
+  min-height: 700px;
+  height: auto;
+}
+
+div[rel="loading"] {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+    /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  /* IE 5-7 */
+  filter: alpha(opacity=50);
+
+  /* Netscape */
+  -moz-opacity: 0.5;
+
+  /* Safari 1.x */
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  z-index:125;
+}
+
+div[rel="loading"] > p, div[rel="loading"] > span {
+  padding-top: 10%;
+}
+
+.selectableGrid {
+  width: 80%;
+  height: auto;
+}
+
+.ui-grid-cell-contents {
+  height: auto !important;
+}
+
+.ui-grid-footer-cell {
+  height:27px;
+  max-height:27px;
+}
+
+span.status-draft {
+  color: #000 !important;
+  background-color: #FFFF80 !important;
+}
+
+span.status-partially-submitted {
+  color: #000 !important;
+  background-color: #FCF8E3 !important;
+}
+
+span.status-validated-with-errors {
+  background-color: #F00 !important;
+  color: #fff !important;
+}
+
+span.status-validated {
+  color: #000 !important;
+  background-color: #DFF0D8 !important;
+}
+
+span.status-submitted {
+  color: #FFF !important;
+  background-color: #5CB85C !important;
+}
+
+div.ui-grid .ui-grid-top-panel {
+  background: #f3f3f3;
+}
+
+@media (max-width: 768px) {
+  .pull-xs-right {
+    float: right !important;
+  }
+  .pull-xs-left {
+    float: left !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .pull-sm-right {
+    float: right !important;
+  }
+  .pull-sm-left {
+    float: left !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .pull-md-right {
+    float: right !important;
+  }
+  .pull-md-left {
+    float: left !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pull-lg-right {
+    float: right !important;
+  }
+  .pull-lg-left {
+    float: left !important;
+  }
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.alert.console {
+  margin-bottom: 3px;
+  padding: 7px;
+}

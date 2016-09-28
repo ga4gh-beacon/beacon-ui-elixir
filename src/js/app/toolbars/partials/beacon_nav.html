@@ -1,0 +1,12 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <div class="navbar-left hidden-phone">
+                <h3 class="ega">{{Config.application.substr(0,1).toUpperCase()+Config.application.substr(1).toLowerCase()}} portal</h3>
+            </div>
+            <div ui-view="authz.login_bar"></div>
+        </div>
+    </nav>
+</div>
