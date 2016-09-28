@@ -110,29 +110,29 @@ Now, you can open config.beacon.local.js with your preferred text editor and loo
 
 ```json
 {
-    application: "beacon",
-    loginType: "requester",
-    useMocks: false,
-    authenticate: true,
-    debug: true,
-    view_dir: "partials/",
+    "application": "beacon",
+    "loginType": "requester",
+    "useMocks": false,
+    "authenticate": true,
+    "debug": true,
+    "view_dir": "partials/",
 
-    API: {
-        protocol: "http",
-        host: "127.0.0.1",
-        port: "9075",
-        path: "/elixirbeacon/v03",
-        beacon: "/beacon",
-        info: ""
+    "API": {
+        "protocol": "http",
+        "host": "127.0.0.1",
+        "port": "9075",
+        "path": "/elixirbeacon/v03",
+        "beacon": "/beacon",
+        "info": ""
     },
 
-    loginState: 'authz.panel',
-    loggedInState: 'authz.panel',
-    forbiddenState: 'authz.panel',
+    "loginState": 'authz.panel',
+    "loggedInState": 'authz.panel',
+    "forbiddenState": 'authz.panel',
 
-    acl: {
-        enable: false,
-        defaultStateRoles: ['ROLE_ADMIN', 'ROLE_REQUESTER']
+    "acl": {
+        "enable": false,
+        "defaultStateRoles": ['ROLE_ADMIN', 'ROLE_REQUESTER']
     },
 
     ...
