@@ -147,6 +147,7 @@ angular.module(appName)
 
                                         if (data.datasets[idx].variantCount > 0) {
                                             $scope.datasets[data.datasets[idx].id] = {
+                                                id: data.datasets[idx].id,
                                                 name: data.datasets[idx].id,
                                                 size: data.datasets[idx].variantCount,
                                                 authorized: data.datasets[idx].info.authorized,
@@ -168,17 +169,19 @@ angular.module(appName)
                                 $scope.referenceGenomes = Object.keys(referenceGenomeKeys);
 
                                 for (thisRg = 0; thisRg < $scope.referenceGenomes.length; thisRg += 1) {
-                                    $scope.datasets["All " + $scope.referenceGenomes[thisRg]] = {
+                                    $scope.datasets.all = {
+                                        id: 'all',
                                         name: "All " + $scope.referenceGenomes[thisRg],
                                         size: referenceGenomeKeys[$scope.referenceGenomes[thisRg]],
                                         authorized: true,
+                                        assemblyId: $scope.referenceGenomes[thisRg],
                                         referenceGenome: $scope.referenceGenomes[thisRg]
                                     };
                                 }
 
                                 $scope.beaconInfo = data;
 
-                                $scope.searchForm.dataset = "All " + $scope.referenceGenomes[0];
+                                $scope.searchForm.datasetIds = 'all';
                                 // $scope.searchForm.assemblyId =  $scope.referenceGenomes[0];
 
                                 $log.debug($scope.datasets);
@@ -240,17 +243,18 @@ angular.module(appName)
                 $scope.beaconSearch = function beaconSearch() {
 
                     var searchParams = angular.copy($scope.searchForm);
-
-                    searchParams.assemblyId = angular.copy($scope.datasets[$scope.searchForm.dataset].referenceGenome);
+                    $log.debug("Form arguments", searchParams);
+                    searchParams.assemblyId = angular.copy($scope.datasets[searchParams.datasetIds].referenceGenome);
 
 
                     // searchParams.chromosome = $scope.chromosomes[$scope.searchForm.chromosome];
                     delete searchParams.referenceGenome;
 
-                    if (searchParams.dataset.indexOf('All') === 0 || searchParams.dataset === '') {
-                        delete searchParams.dataset;
+                    if (searchParams.datasetIds.toLowerCase().indexOf('all') === 0 || searchParams.datasetIds === '') {
                         delete searchParams.datasetIds;
                     }
+
+                    $log.debug("Sending arguments", searchParams);
 
                     $http({
                         url: api + 'query',
