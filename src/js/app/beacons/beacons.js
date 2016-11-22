@@ -249,6 +249,7 @@ angular.module(appName)
 
                     if (searchParams.dataset.indexOf('All') === 0 || searchParams.dataset === '') {
                         delete searchParams.dataset;
+                        delete searchParams.datasetIds;
                     }
 
                     $http({
@@ -313,7 +314,11 @@ angular.module(appName)
                         field: "info.accessType",
                         displayName: "Access type",
                         width: "17%",
-                        cellTemplate: '<div class="ui-grid-cell-contents"><span class="label label-{{row.entity.info.accessType === \'PUBLIC\' ? \'success\' : row.entity[col.field] === \'REGISTERED\' ? \'warning\' : \'danger\'}}">{{row.entity.info.accessType}}</span></div>',
+                        cellTemplate: '<div class="ui-grid-cell-contents">'
+                                        + '<span class="label label-{{row.entity.info.accessType.indexOf(\'PUBLIC\') === 0 ? \'success\' : row.entity.info.accessType.indexOf(\'REGISTERED\') === 0 ? \'warning\' : \'danger\'}}">'
+                                        + '{{row.entity.info.accessType}}'
+                                        + '</span>'
+                                    + '</div>',
                         filter: {
                             condition: 16 // contains
                         }
