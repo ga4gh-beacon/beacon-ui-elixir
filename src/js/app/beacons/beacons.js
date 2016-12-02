@@ -299,7 +299,7 @@ angular.module(appName)
                 columnDefs: [
                     {
                         field: "id",
-                        displayName: "EGA ID",
+                        displayName: "Dataset ID",
                         cellTemplate: '<div class="ui-grid-cell-contents"><a target="_new" href="https://ega.crg.eu/datasets/{{row.entity[col.field]}}">{{row.entity[col.field]}}</a></div>',
                         width: "18%",
                         filter: {
