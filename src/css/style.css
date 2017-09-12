@@ -194,7 +194,7 @@ span.label.state-7 {
 
 .baseGrid {
   width: 100%;
-  min-height: 700px;
+  min-height: 550px;
   height: auto;
 }
 
@@ -308,4 +308,17 @@ div.ui-grid .ui-grid-top-panel {
 .alert.console {
   margin-bottom: 3px;
   padding: 7px;
+}
+
+.elixir-login {
+	display: block;
+	margin-top: 10px;
+	background: white url('./img/elixir_login-button-small-flat.png') 0 0 no-repeat;
+	width: 110px;
+	height: 50px;
+	background-size: 110px;
+	text-indent: -9999px;
+	transition: background 0.15s;
+	float: right;
+	margin-right: 40px;
 }
