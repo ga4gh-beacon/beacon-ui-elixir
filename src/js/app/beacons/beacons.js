@@ -59,9 +59,10 @@ angular.module(appName)
         [
             '$scope',
             '$http',
+	    '$cookies',
             '$sce',
             'Config',
-            function beaconsInfoController($scope, $http, $sce, Config) {
+            function beaconsInfoController($scope, $http, $cookies, $sce, Config) {
                 'use strict';
                 var api = (
                     Config.API.protocol + '://' +
@@ -71,6 +72,8 @@ angular.module(appName)
                     (angular.isDefined(Config.API.endpoint) ? Config.API.endpoint : '') + '/'
                 );
                 $scope.beaconDescription = '';
+		$scope.authorized = false;
+		$scope.has_session = $cookies.get('JSESSIONID');
 
                 $http.get(api + '/?limit=0')
                     .then(
