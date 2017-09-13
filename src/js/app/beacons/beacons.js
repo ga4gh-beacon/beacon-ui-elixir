@@ -144,7 +144,6 @@ angular.module(appName)
                                 $scope.referenceGenomes = [];
 
                                 for (idx = 0; idx < data.datasets.length; idx += 1) {
-                                    if (data.datasets[idx].info.authorized.match(/true/)) {
                                         data.datasets[idx].assemblyId = data.datasets[idx].assemblyId.substr(0, 3).toUpperCase() +
                                             data.datasets[idx].assemblyId.substr(3, 10).toLowerCase();
 
@@ -163,7 +162,6 @@ angular.module(appName)
                                             referenceGenomeKeys[data.datasets[idx].assemblyId] += data.datasets[idx].variantCount;
                                             overallSize += data.datasets[idx].variantCount;
                                             $log.debug($scope.datasets[data.datasets[idx].id]);
-                                        }
                                     }
                                 }
                                 if ($scope.overallSize === null) {
