@@ -79,6 +79,7 @@ angular.module(appName)
                     .then(
                         function onBeaconInfoSuccess(result) {
                             $scope.beaconDescription = $sce.trustAsHtml(result.data.description);
+			     $scope.authorized = (result.data.info.bona_fide_status === "true");
                         },
                         function onBeaconInfoError() {
                             $scope.beaconDescription = '';
@@ -122,10 +123,10 @@ angular.module(appName)
                 };
 
                 $scope.searchForm = {
-                    referenceName: '1',
-                    alternateBases: 'A',
+                    referencename: '1',
+                    alternatbases: 'A',
                     start: 0,
-                    datasetIds: 'all'
+                    datasetids: 'all'
                 };
 
                 $scope.getDatasets = function getDatasets() {
@@ -182,7 +183,7 @@ angular.module(appName)
 
                                 $scope.beaconInfo = data;
 
-                                $scope.searchForm.datasetIds = 'all';
+                                 $scope.searchForm.dataset = "All " + $scope.referenceGenomes[0];
                                 // $scope.searchForm.assemblyId =  $scope.referenceGenomes[0];
 
                                 $log.debug($scope.datasets);
