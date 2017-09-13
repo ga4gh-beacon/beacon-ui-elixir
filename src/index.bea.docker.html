@@ -21,11 +21,11 @@
                 <div class="col-lg-2 col-md-3 col-sm-3 col-xs-6">
                     <img src="img/ELIXIR_logo.png" class="pull-right img-responsive"/>
                 </div>
-		<a class="elixir-login" href="http://elixir-beacon.csc.fi/login">Login</a>
+		<a ng-if="use_elixir_aai" class="elixir-login" href="http://elixir-beacon.csc.fi/login">Login</a>
             </div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12 well">
-                    <div ng-controller="beaconsInfoController">
+                    <div ng-if="use_elixir_aai" ng-controller="beaconsInfoController">
 			<span ng-if="has_session">You are now logged in <span ng-if="authorized == true" style="font-weight:bold" class="text-success">and identified as bona fide researcher!</span> <span ng-if="authorized == false" class="text-danger">but not identified as a bona fide researcher</span></span>
 			<span ng-if="has_session == null">You are <span ng-if="authorized == false" style="font-weight:bold"  class="text-danger">not logged in!</span> Please note that in order to access restricted datasets you have to log in as a bona fide researcher!</span>
 		    </div>
