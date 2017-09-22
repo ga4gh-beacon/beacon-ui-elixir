@@ -16,14 +16,14 @@
                             required
                             class="form-control"
                             name="dataset"
-                            ng-model="searchForm.datasetIds"
+                            ng-model="searchForm.datasetids"
                             ng-options="dsid as dsid + ' (' + dataset.size + ' variants)' for (dsid, dataset) in datasets"></select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="chromosome" class="col-md-4 col-sm-3 control-label">Reference genome:</label>
                     <div class="col-md-8 col-sm-8">
-                        <div ng-model="searchForm.datasetIds">{{datasets[searchForm.dataset].referenceGenome}}</div>
+                        <div ng-model="searchForm.datasetids">{{datasets[searchForm.dataset].referenceGenome}}</div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -33,7 +33,7 @@
                             required
                             class="form-control"
                             name="chromosome"
-                            ng-model="searchForm.referenceName"
+                            ng-model="searchForm.referencename"
                             ng-options="chromosome for chromosome in chromosomes">
                         </select>
                     </div>
@@ -62,17 +62,17 @@
                             rows="6"
                             name="allele"
                             pattern="([ACTG]+)"
-                            ng-model="searchForm.alternateBases"
+                            ng-model="searchForm.alternatebases"
                             type="text"/>
                     </div>
-                    <div class="col-md-5 col-sm-12 alert alert-danger" ng-show="searchForm.alternateBases.$touched && searchForm.alternateBases.$error.required">Please, select Data Access Committee</div>
+                    <div class="col-md-5 col-sm-12 alert alert-danger" ng-show="searchForm.alternatebases.$touched && searchForm.alternatebases.$error.required">Please, select Data Access Committee</div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-8 col-sm-8 col-md-offset-4 col-sm-offset-4">
-                        <p class="alert alert-warning">
+                        <!-- <p class="alert alert-warning">
                             <span ng-bind-html="beaconDescription"></span>.
                             Please, keep in mind that Indel queries are not supported yet.
-                        </p>
+                        </p>-->
                     </div>
                 </div>
                 <div class="form-group">

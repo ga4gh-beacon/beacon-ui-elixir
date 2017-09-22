@@ -13,6 +13,7 @@ angular
             authenticate: true,
             debug: false,
             view_dir: "partials/",
+	    use_elixir_aai: false,
 
             API: {
                 protocol: "http",

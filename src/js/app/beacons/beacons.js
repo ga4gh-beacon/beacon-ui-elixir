@@ -59,9 +59,10 @@ angular.module(appName)
         [
             '$scope',
             '$http',
+	    '$cookies',
             '$sce',
             'Config',
-            function beaconsInfoController($scope, $http, $sce, Config) {
+            function beaconsInfoController($scope, $http, $cookies, $sce, Config) {
                 'use strict';
                 var api = (
                     Config.API.protocol + '://' +
@@ -71,11 +72,14 @@ angular.module(appName)
                     (angular.isDefined(Config.API.endpoint) ? Config.API.endpoint : '') + '/'
                 );
                 $scope.beaconDescription = '';
+		$scope.authorized = false;
+		$scope.has_session = $cookies.get('JSESSIONID');
 
                 $http.get(api + '/?limit=0')
                     .then(
                         function onBeaconInfoSuccess(result) {
                             $scope.beaconDescription = $sce.trustAsHtml(result.data.description);
+			     $scope.authorized = (result.data.info.bona_fide_status === "true");
                         },
                         function onBeaconInfoError() {
                             $scope.beaconDescription = '';
@@ -119,10 +123,10 @@ angular.module(appName)
                 };
 
                 $scope.searchForm = {
-                    referenceName: '1',
-                    alternateBases: 'A',
+                    referencename: '1',
+                    alternatbases: 'A',
                     start: 0,
-                    datasetIds: 'all'
+                    datasetids: 'all'
                 };
 
                 $scope.getDatasets = function getDatasets() {
@@ -141,7 +145,6 @@ angular.module(appName)
                                 $scope.referenceGenomes = [];
 
                                 for (idx = 0; idx < data.datasets.length; idx += 1) {
-                                    if (data.datasets[idx].info.authorized.match(/true/)) {
                                         data.datasets[idx].assemblyId = data.datasets[idx].assemblyId.substr(0, 3).toUpperCase() +
                                             data.datasets[idx].assemblyId.substr(3, 10).toLowerCase();
 
@@ -160,7 +163,6 @@ angular.module(appName)
                                             referenceGenomeKeys[data.datasets[idx].assemblyId] += data.datasets[idx].variantCount;
                                             overallSize += data.datasets[idx].variantCount;
                                             $log.debug($scope.datasets[data.datasets[idx].id]);
-                                        }
                                     }
                                 }
                                 if ($scope.overallSize === null) {
@@ -181,7 +183,7 @@ angular.module(appName)
 
                                 $scope.beaconInfo = data;
 
-                                $scope.searchForm.datasetIds = 'all';
+                                 $scope.searchForm.dataset = "All " + $scope.referenceGenomes[0];
                                 // $scope.searchForm.assemblyId =  $scope.referenceGenomes[0];
 
                                 $log.debug($scope.datasets);
