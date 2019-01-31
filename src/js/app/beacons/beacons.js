@@ -126,7 +126,7 @@ angular.module(appName)
                     referencename: '1',
                     alternatbases: 'A',
                     start: 0,
-                    datasetids: 'all'
+                    datasetIds: 'all'
                 };
 
                 $scope.getDatasets = function getDatasets() {

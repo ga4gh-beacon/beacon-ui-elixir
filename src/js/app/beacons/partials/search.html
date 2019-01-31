@@ -16,14 +16,14 @@
                             required
                             class="form-control"
                             name="dataset"
-                            ng-model="searchForm.datasetids"
+                            ng-model="searchForm.datasetIds"
                             ng-options="dsid as dsid + ' (' + dataset.size + ' variants)' for (dsid, dataset) in datasets"></select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="chromosome" class="col-md-4 col-sm-3 control-label">Reference genome:</label>
                     <div class="col-md-8 col-sm-8">
-                        <div ng-model="searchForm.datasetids">{{datasets[searchForm.dataset].referenceGenome}}</div>
+                        <div ng-model="searchForm.datasetIds">{{datasets[searchForm.dataset].referenceGenome}}</div>
                     </div>
                 </div>
                 <div class="form-group">
