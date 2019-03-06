@@ -123,10 +123,12 @@ angular.module(appName)
                 };
 
                 $scope.searchForm = {
-                    referencename: '1',
-                    alternatbases: 'A',
+                    referenceName: '1',
+		    referenceBases: '',
+                    alternateBases: 'A',
                     start: 0,
-                    datasetIds: 'all'
+                    //datasetIds: 'all',
+		    assemblyId: 'GRCh37'
                 };
 
                 $scope.getDatasets = function getDatasets() {
@@ -183,7 +185,7 @@ angular.module(appName)
 
                                 $scope.beaconInfo = data;
 
-                                 $scope.searchForm.dataset = "All " + $scope.referenceGenomes[0];
+                                // $scope.searchForm.dataset = "All " + $scope.referenceGenomes[0];
                                 // $scope.searchForm.assemblyId =  $scope.referenceGenomes[0];
 
                                 $log.debug($scope.datasets);
@@ -260,7 +262,7 @@ angular.module(appName)
 
                     $http({
                         url: api + 'query',
-                        method: 'POST',
+                        method: 'GET',
                         params: searchParams,
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'

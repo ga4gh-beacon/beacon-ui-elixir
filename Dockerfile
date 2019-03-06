@@ -34,7 +34,8 @@ RUN sed -e "s/__UI_BUILD_APP__/beacon/g" ./beacon_docker.conf |\
     sed -e "s/__UI_BUILD_ENV__/docker/g" > \
     /etc/apache2/sites-available/beacon_docker.conf
 
-RUN a2ensite beacon_docker && \
+RUN a2enmod headers && \
+    a2ensite beacon_docker && \
     a2dissite 000-default
 RUN rm -Rf beacon_docker.conf \
     src \

@@ -8,18 +8,20 @@
             <table class="table" ng-if="results.length">
                 <tr>
                     <th>Dataset</th>
-                    <th>Ref</th>
+                    <th>Asm</th>
                     <th>Chr</th>
                     <th>Pos</th>
-                    <th>Var</th>
+                    <th>Ref</th>
+                    <th>Alt</th>
                     <th>Exists</th>
                 </tr>
                 <tr ng-repeat="result in results | orderBy:$index:true track by $index">
                     <td>{{result.result.datasetIds[0] || 'All GRCh37'}}</td>
                     <td>{{result.result.assemblyId}}</td>
-                    <td>{{result.referencename}}</td>
+                    <td>{{result.referenceName}}</td>
                     <td>{{result.start}}</td>
-                    <td>{{result.alternatebases}}</td>
+                    <td>{{result.referenceBases}}</td>
+                    <td>{{result.alternateBases}}</td>
                     <td><span class="badge alert-{{result.result.exists ? 'success' : 'danger'}}">{{result.result.exists || false}}</span></td>
                 </tr>
             </table>

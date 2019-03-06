@@ -19,7 +19,7 @@ angular
                 protocol: "http",
                 host: "127.0.0.1",
                 port: "9075",
-                path: "/elixirbeacon/v03",
+                path: "/elixirbeacon/v1.0.1",
                 endpoint: "/beacon",
                 info: ""
             },
